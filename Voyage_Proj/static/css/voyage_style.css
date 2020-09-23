@@ -1,0 +1,44 @@
+#main-bnr{
+    background: rgb(49,74,149);
+    background: linear-gradient(0deg, rgba(49,74,149,1) 0%, rgba(50,50,56,1) 100%);
+
+}
+.navbar{
+    box-shadow: 0 8px 6px -6px black;
+
+}
+.navbar .nav-item .nav-link{
+    color: #000000;
+}
+.navbar .nav-item{
+    margin: 2%;
+}
+.navbar-toggler .navbar-toggler-icon{
+    background-image: url("/static/images/MenuNew.png")
+    
+}
+.banner-area .navbar-custom{
+    background-color:hsl(0, 0%, 100%);
+    border-radius:10px;
+
+
+}
+
+.enquiry-bnr{   
+        background-color:#ffffff; 
+        padding:5% 5% 5% 5%;
+        margin-top:-50px;
+        /* margin: 2%; */
+        border-radius: 15px;
+        height: 260px;
+        box-shadow:
+        0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+        0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+        0 12.5px 10px rgba(0, 0, 0, 0.06),
+        0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+        0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+        0 100px 80px rgba(0, 0, 0, 0.12);
+}
+.enquiry-bnr .row .col-sm{
+        
+}
