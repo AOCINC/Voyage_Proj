@@ -14,11 +14,25 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.auth import views as auth_views  # for reset password 
 from django.urls import path,include
+from django.conf.urls.static import static
+from Users import urls
 from Voyage_LandingApp import urls
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('Voyage_LandingApp.urls')),
+    path('',include('Users.urls')),
+    path('accounts/', include('django.contrib.auth.urls')), # accounts for authentication
+
+    # password reset setting urls 
+    path('password-reset/',auth_views.PasswordResetView.as_view(template_name='Users/password_reset.html'),name='password_reset'),
+    path('password-reset/done/',auth_views.PasswordResetDoneView.as_view(template_name='Users/password_reset_done.html'),name='password_reset_done'),
+    path('password-reset-confirm/<uidb64>/<token>/',auth_views.PasswordResetConfirmView.as_view(template_name='Users/password_reset_confirm.html'),name='password_reset_confirm'),
+    path('password-reset-complete/',auth_views.PasswordResetCompleteView.as_view(template_name='Users/password_reset_complete.html'),name='password_reset_complete'),
+
+
 ]

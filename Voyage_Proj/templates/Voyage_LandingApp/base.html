@@ -16,14 +16,22 @@
      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
      crossorigin="anonymous">
-    
-    <title>Voyage Holidayz</title>
+     <!-- google font for signu and signin -->
+     <link href="https://fonts.googleapis.com/css2?family=Volkhov:wght@700&display=swap" rel="stylesheet">
+
+
+
+     <title>{% block title %} Voyage Holidayz {% endblock %}</title>
+
 </head>
-<body>
+<body class="base-body">
 <!-- Mega Navbar  -->
 <div class="jumbotron banner-area" id="main-bnr">
     <div class="container">
-        <h3 class="text-left" style="color: #ffffff;">Voyage Holidayz</h3>
+          <a href="{% url 'home' %}">
+            <img src="{% static "images/brand.png" %}" alt="" style="width:250px">
+          </a>
+
         <div class="row">
             <div class="col-12">
                 <nav class="navbar navbar-expand-lg navbar-custom bg"> 
@@ -35,7 +43,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                       <ul class="navbar-nav mr-auto">
                         <li class="nav-item active text-center">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{% url 'home' %}">
                             <img class="text-center" src="{% static "images/home.png" %}" alt="" style="width: 40px;"> <br>
                             Home <span class="sr-only">(current)</span>
                             </a>
@@ -79,21 +87,28 @@
                         
                       </ul>
                       <ul class="navbar-nav ml-auto"> 
+                      {% if user.is_authenticated%}
                         <li class="nav-item"> 
-                            <a class="nav-link text-center" href="#"> 
+                          <a class="nav-link text-center" href="{% url 'logout' %}"> 
+                          <img class="text-center" src="{% static "images/logout.png" %}" alt="" style="width: 35px;"> <br>
+                            LogOut 
+                          </a> 
+                        </li> 
+                      {% else %}
+                        <li class="nav-item"> 
+                            <a class="nav-link text-center" href="{% url 'login' %}"  href="#sign-in-scrol"> 
                             <img class="text-center" src="{% static "images/login.png" %}" alt="" style="width: 35px;"> <br>
                               SignIn 
                             </a> 
                         </li>
                         <li class="nav-item"> 
-                            <a class="nav-link text-center" href="#"> 
-                            <img class="text-center" src="{% static "images/logout.png" %}" alt="" style="width: 35px;"> <br>
-                              LogOut 
-                            </a> 
-                        </li> 
-
-                       </ul> 
-            
+                          <a class="nav-link text-center" href="{% url 'signup' %}"  href="#sign-in-scrol"> 
+                          <img class="text-center" src="{% static "images/login.png" %}" alt="" style="width: 35px;"> <br>
+                            SignUp 
+                          </a> 
+                        </li>
+                       {% endif %}
+                      </ul> 
 
                       <!-- <form class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -104,37 +119,6 @@
             </div>
         </div>
     </div>
-    <br><br>
-    <div class="enquiry-bnr"> 
-        <div class="row">
-          <div class="col-sm" >
-            <h5 class="text-center">
-                <img class="text-center" src="{% static "images/call.png" %}" alt="" style="width: 40px;">
-            </h5>
-            <h5 class="text-center">
-                Constomized Packages
-            </h5>
-          </div>
-          <div class="col-sm">
-              <h5 class="text-center">
-                <img class="text-center" src="{% static "images/packages.png" %}" alt="" style="width: 40px;">
-              </h5>
-            <h5 class="text-center">
-                Explore Packages
-            </h5>
-            
-          </div>
-          <div class="col-sm">
-              <h5 class="text-center">
-                <img class="text-center" src="{% static "images/cities.png" %}" alt="" style="width: 40px;">
-              </h5>
-            <h5 class="text-center">
-                Destination
-            </h5>
-          </div>
-        </div>
-      </div>
-
 </div>
 
 <!-- Mega Navbar ends here -->

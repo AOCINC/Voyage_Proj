@@ -1,0 +1,28 @@
+<html>
+{% extends 'Voyage_LandingApp/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+
+{% block content %}
+<div id="signup-body">
+ <div class="container wrapper2  d-flex justify-content-center">  
+    <form class="form-signup "method="post">
+        {% csrf_token %}
+        <div class="form-row">
+          <div class="form-group">
+            <legend id="signup-font"> Sign Up</legend>
+            {{ form | crispy }}
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+            <small class='text-muted font-weight-bold'>Already Have Account ?<a class="ml-2" href="{% url 'login' %}">SignIn</a></small>
+          </div>
+        </div>  
+    </form>
+  </div>
+</div>
+        
+
+<br><br><br>
+
+{% endblock %}
