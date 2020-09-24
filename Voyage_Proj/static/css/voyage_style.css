@@ -58,6 +58,11 @@
     font-family: 'Volkhov', serif;
     text-align:center;
 }
+#reset-pswd-font{
+    font-family: 'Volkhov', serif;
+    text-align:center;
+    
+}
 #signin-body .card-signin{
     background-color:#ffffff;
     margin:10%;
