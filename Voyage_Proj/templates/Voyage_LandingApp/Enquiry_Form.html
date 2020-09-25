@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% extends 'Voyage_LandingApp/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+
+<div class="" id="Enquiry-Form">  
+    
+
+    <div class="row form-group">
+        <legend class="text-center enquiry-head" style="font-family: 'Volkhov', serif;"> Enquiry</legend>
+        {% if Form.errors %}
+    {% for field in Form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in Form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}
+          <div class="col-sm">
+              {% csrf_token %}
+              <form action=""  method="post">
+                        {% csrf_token %}
+                        <!-- {{ Form.Full_Name|as_crispy_field }} -->
+                        {{ Form.Full_Name }} <br>
+            </div>
+            <div class="col-sm">
+                <!-- {{ Form.Email|as_crispy_field }} -->
+                {{ Form.Email }} <br>
+            </div>
+            <div class="col-sm">
+                <!-- {{ Form.Phone|as_crispy_field }} -->
+                {{ Form.Phone }} <br>
+            </div>
+            <div class="col-sm">
+                <!-- {{ Form.Journey_Date|as_crispy_field }} -->
+                {{ Form.Journey_Date  }} <small class="text-muted">Date Of Journey</small>
+            </div>
+            <div class="col-sm">
+                <!-- {{ Form.Destination|as_crispy_field }} -->
+                {{ Form.Destination }} <br>
+            </div>
+            <div class="col-sm">
+                <!-- {{ Form.Adults|as_crispy_field }} -->
+                 {{ Form.Adults }}  <small class="text-muted">How Many People</small>
+            </div>
+            <div class="col-sm">
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            </div>
+    
+            </form>
+            </div>
+    
+    
+      </div>
+    
+
+{% endblock %}

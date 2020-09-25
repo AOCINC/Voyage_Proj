@@ -1,0 +1,23 @@
+{% block content %}
+{% load static %}
+<br>
+
+<div class="container" style="background-color:#b49103; padding: 20px;">
+    <h1>  <strong style="color: #f7f8fc;font-family:Libre Baskerville', serif ;"> Voyage Holidayz</strong> </h1>
+    <div class="container text-center" style="color:white; padding:5%;">
+        <h3>Traveller Details..</h3><hr>
+        <p>name                   : {{ name }} </p><hr>
+        <p>email                  : {{ email }}  </p><hr>
+        <p>phone                  : {{ phone }}</p><hr>
+        <p>journey Date           : {{ j_Date }} </p><hr>
+        <p>Destination            : {{ destination }} </p><hr>
+        <p>people                 : {{  people }}</p><hr>
+    </div>
+    
+</div>
+
+
+ 
+
+{% endblock %}
+

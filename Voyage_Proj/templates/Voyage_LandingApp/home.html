@@ -10,7 +10,9 @@
             <img class="text-center" src="{% static "images/call.png" %}" alt="" style="width: 40px;">
         </h5>
         <h5 class="text-center">
-            Constomized Packages
+            <a href="{% url 'Enquiry_Form' %}" id="banner-head">
+            Constomized Packages     
+          </a>
         </h5>
       </div>
       <div class="col-sm">
@@ -34,5 +36,18 @@
   </div>
 </div>
 
+<!-- <br><br><br>
+<div class="alert alert-primary" role="alert">
+    {% if messages %}
+        {% for message in messages %}
+        <p id="messages">{{message}}</p>
+        {% endfor %}
+    {% endif %}
+</div> -->
+
+<!-- test form -->
+
+
+<!-- test form -->
 
 {% endblock %}

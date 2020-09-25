@@ -35,10 +35,15 @@
         box-shadow: 0 8px 6px -6px black;
 
 }
+#banner-head{
+    text-decoration: none;
+    color: #000000;
+    
+}
 /* home nav and banner end */
 
 /* user login signup */
-#signin-body{
+#signin-body a{
     background-color:#f7f7f7;
     margin-top:-8%;
     padding:3%;
@@ -103,6 +108,24 @@
 
 }
 
-
-
 /* user login signup ends  */
+
+
+/*ENQUIRY Form  */
+#Enquiry-Form{
+    padding: 5%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 8px 6px -6px black;
+    margin-top: -7%;
+
+
+}
+#Enquiry-Form .row {
+    padding: 1%;
+    background-color:#fafafa;
+    border-radius: 10px;
+    box-shadow: 0 8px 6px -6px   black;
+
+}
+
+/* Enquiry Form */
