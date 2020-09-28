@@ -11,7 +11,7 @@
         </h5>
         <h5 class="text-center">
             <a href="{% url 'Enquiry_Form' %}"  id="banner-head">
-            Constomized Packages     
+            Customize Packages     
           </a>
         </h5>
       </div>
@@ -45,9 +45,77 @@
     {% endif %}
 </div> -->
 
-<!-- test form -->
+
+<!-- services -->
+<br><br><br>
+<!-- <div class="container"> -->
+<h3 class="text-center service-heading"> <img src="{% static 'images/service-heading.png' %}" class="service-img" alt=""> Services</h3>
+<div class="corousel" data-flickity ='{"groupCells":true,"autoplay":true}'>
+  <div class="carousel-cell"> 
+    <a href="{% url 'Enquiry_Form' %}">
+      <h5 class="text-center bold-text"> Holidays Packages </h5>
+      <img src="{% static 'images/holiday_package.jpeg' %}"  class="responsive-img services-imgs" alt="">
+    </a>
+  </div> 
+  <div class="carousel-cell">
+    <a href="">
+      <h5 class="text-center bold-text"> Flights </h5>
+      <img src="{% static 'images/flight_2.jpeg' %}"  class="responsive-img services-imgs" alt="">
+    </a>
+  </div>
+  <div class="carousel-cell">
+    <a href="">
+      <h5 class="text-center bold-text"> Hotels </h5>
+      <img src="{% static 'images/hotel.jpeg' %}"  class="responsive-img services-imgs" alt="">
+    </a>
+  </div>
+  <div class="carousel-cell">
+    <a href="">
+      <h5 class="text-center bold-text"> Visa </h5>
+      <img src="{% static 'images/visas.jpg' %}"  class="responsive-img services-imgs" alt="">
+    </a>
+  </div>
+  <div class="carousel-cell">
+    <a href="">
+      <h5 class="text-center bold-text"> Trasport Services </h5>
+      <img src="{% static 'images/transports.jpeg' %}"  class="responsive-img services-imgs" alt="">
+    </a>
+  </div>
+
+</div>
+<!-- </div> -->
+<!-- services end -->
+<br><br><br><br>
 
 
-<!-- test form -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 {% endblock %}

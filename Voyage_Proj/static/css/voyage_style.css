@@ -104,9 +104,7 @@
     0 100px 80px rgba(0, 0, 0, 0.12);
 
 }
-.wrapper2 .forn-signup .form-row .form-group{ 
 
-}
 
 /* user login signup ends  */
 
@@ -129,3 +127,23 @@
 }
 
 /* Enquiry Form */
+
+/* services div */
+.service-heading{
+    font-family: 'Volkhov', serif;
+    margin-bottom:3%;
+}
+.corousel-cell{
+    width:100%;
+}
+.services-imgs{
+    width:245px;
+    height: 206px;
+}
+
+.service-img{
+    width:50px
+}
+
+
+/* services div */
