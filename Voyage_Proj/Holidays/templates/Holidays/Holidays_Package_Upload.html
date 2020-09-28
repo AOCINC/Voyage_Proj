@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% extends 'Voyage_LandingApp/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+{% if messages %}
+        {% for message in messages %}
+        <div class="container">
+            <strong class="alert alert-primary">{{ message }}</strong><br><br><br>
+            <a href="{% url 'Prescription_Upload' %}" class="btn btn-primary">Upload More</a>
+        </div>
+        {% endfor %}
+    {% else %}
+    
+    <div class="container col-md-6 Holiday-package-upload">
+    <form method ="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="custom-file">
+            <!-- <label for="">upload a File</label> -->
+                <div class="form-group" id="file-upload-div">
+                    <h5 class="text-center" style="color: #0fc4b5;">Upload Package/Trip Details. </h5>
+                  {{ Form | crispy  }}
+                  <!-- <label for="exampleFormControlFile1"></label> -->
+                  <!-- <strong style="color: orangered;"> <i class="fas fa-file-csv"></i> Choose only CSV File To Upload Data</strong> -->
+                  <br>
+                  <!-- <input type="file"  name="file" class="form-control-file" id="exampleFormControlFile1">
+                  <br><br>  -->
+                  <button type="submit" class="btn btn-primary" id="upload-btn"> <i class="fas fa-file-upload"></i> Upload</button><br><br>
+                </div>
+                <br><br>
+              </form>
+          </div>
+        <!-- <input type="file" name="file">
+        <button type="submit">Upload</button> -->
+
+    </form>
+</div>
+     
+    {% endif %}
+
+{% endblock %}

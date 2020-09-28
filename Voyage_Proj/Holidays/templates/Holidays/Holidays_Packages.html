@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% extends 'Voyage_LandingApp/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+<div class="Holidays-Package-Body">
+    <div class="container ">
+        <div class="row Holidays-container">
+            {% if Data_list %}
+            {% for data in Data_list %} 
+            <div class="col-sm-8">
+                <!--package list  -->
+                <div class="card mb-3" style="max-width: 840px;">
+                    <div class="row no-gutters">
+                    <div class="col-md-6">
+                        <img src="{{ data.Location_Image.url }}" class="card-img holidays-card-imgs" alt="...">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card-body">
+                        <h5 class="card-title">{{ data.Trip_Name }}  </h5>
+                        <p class="card-text">{{ data.Days}} Days | {{ data.Nights}}Nights </p>
+                        </div>
+                    </div>
+                    <!-- detail button div -->
+                    <div class="col-md-2">
+                        <div class="card-body">
+                            <button class="btn btn-outline-danger"> View</button>
+                        </div>
+                    </div>
+                    
+                </div>
+                </div>
+            </div>
+                {% endfor %}
+                    {% else %}
+                        <p class="text-secondary"> No Packages Found</p>
+                {% endif %}
+            </div>
+        </div>
+        
+        <!-- <div class="col-sm-4"> -->
+            
+            
+            <!-- some thing is need use this side bar  -->
+
+        
+        <!-- </div> -->
+        
+    </div>
+</div>
+<!--  -->
+
+
+{% endblock %}
