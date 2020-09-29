@@ -43,6 +43,11 @@
 /* home nav and banner end */
 
 /* home page package naviation  */
+.card-block{
+    box-shadow: 0 10px 6px -6px black;
+
+}
+
 .order-card {
     color: #fff;
 }
