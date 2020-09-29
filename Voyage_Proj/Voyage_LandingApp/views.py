@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Enquiry_Tab
+from Holidays.models import Holidays_Packages_Upload
 from .forms import Enquiry_Form
 from django.template.loader import get_template
 from django.core.mail import send_mail
@@ -16,8 +17,20 @@ from django.template import Context
 
 
 def home_view(request):
+    Domestic_count    = Holidays_Packages_Upload.objects.filter(Package = 'Domestic').count()
+    CentralAsia_Count = Holidays_Packages_Upload.objects.filter(Package = 'CentralAsia').count()
+    Europe_count      = Holidays_Packages_Upload.objects.filter(Package = 'Europe').count()
+    MiddleEast_count  = Holidays_Packages_Upload.objects.filter(Package = 'MiddleEast').count()
+    SouthEast_Asia_count = Holidays_Packages_Upload.objects.filter(Package = 'SouthEast_Asia').count()
     template_name = 'Voyage_LandingApp/home.html'
-    return render(request,template_name)
+    context    = {
+                 'Domestic_count':Domestic_count,
+                 'CentralAsia_Count':CentralAsia_Count,
+                 'Europe_count':Europe_count,
+                 'MiddleEast_count':MiddleEast_count,
+                 'SouthEast_Asia_count':SouthEast_Asia_count,
+                 }
+    return render(request,template_name,context)
 
 @login_required
 def Enquiry_View(request):

@@ -87,7 +87,63 @@
 <!-- services end -->
 <br><br><br><br>
 
+<!-- all package display -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-xl-3">
+            <div class="card bg-c-blue order-card">
+                <div class="card-block">
+                    <h6 class="m-b-20"><a href="{% url 'Domestic_Packages' %}" style="color: #fff;"> Domestic Packages</a></h6>
+                    <h2 class="text-right"><i class="fa fa-route f-left"></i><span>{{ Domestic_count }}</span></h2>
+                    <p class="m-b-0"> <a href="{% url 'Enquiry_Form' %}" style="color: #fff;">Contact </a><span class="f-right"><a href="https://www.google.com" style="color: #fff;"> Browse Now</a></span></p>
+                  </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-xl-3">
+            <div class="card bg-c-green order-card">
+                <div class="card-block">
+                    <h6 class="m-b-20">Central Asia Packages</h6>
+                    <h2 class="text-right"><i class="fa fa-globe-europe f-left"></i><span>{{ CentralAsia_Count }}</span></h2>
+                    <p class="m-b-0"> <a href="{% url 'Enquiry_Form' %}" style="color: #fff;">Contact </a><span class="f-right"><a href="https://www.google.com" style="color: #fff;"> Browse Now</a></span></p>
+                  </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-xl-3">
+            <div class="card bg-c-yellow order-card">
+                <div class="card-block">
+                    <h6 class="m-b-20">Europe Packages</h6>
+                    <h2 class="text-right"><i class="fa fa-globe-europe f-left"></i><span>{{ Europe_count }}</span></h2>
+                    <p class="m-b-0"> <a href="{% url 'Enquiry_Form' %}" style="color: #fff;">Contact </a><span class="f-right"><a href="https://www.google.com" style="color: #fff;"> Browse Now</a></span></p>
+                  </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-xl-3">
+            <div class="card bg-c-pink order-card">
+                <div class="card-block">
+                    <h6 class="m-b-20">Middle East Packages</h6>
+                    <h2 class="text-right"><i class="fa fa-globe-europe f-left"></i><span>{{ MiddleEast_count }}</span></h2>
+                    <p class="m-b-0"> <a href="{% url 'Enquiry_Form' %}" style="color: #fff;">Contact </a><span class="f-right"><a href="https://www.google.com" style="color: #fff;"> Browse Now</a></span></p>
+                  </div>
+            </div>
+        </div>
 
+        <div class="col-md-4 col-xl-3">
+          <div class="card bg-c-yellow order-card">
+              <div class="card-block">
+                  <h6 class="m-b-20">South East Packages</h6>
+                  <h2 class="text-right"><i class="fa fa-globe-europe f-left"></i><span>{{ SouthEast_Asia_count }}</span></h2>
+                  <p class="m-b-0"> <a href="{% url 'Enquiry_Form' %}" style="color: #fff;">Contact </a><span class="f-right"><a href="https://www.google.com" style="color: #fff;"> Browse Now</a></span></p>
+
+              </div>
+          </div>
+      </div>
+
+	</div>
+</div>
+<!-- all package display ends -->
 
 
 

@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger 
 from .models import (Holidays_Packages_Upload,Domestic_Holiday_Package,
                     Central_Asia_Packages,Europe_Packages,Middle_East_Packages,
                     SouthEast_Asia_Packages,
@@ -37,11 +39,9 @@ def Holidays_PackagesUpload_View(request):
             if package == 'SouthEast_Asia':
                 SouthEast_Asia_tab  = SouthEast_Asia_Packages(Trip_Name = tripName, Days = days, Nights = nights, Datailed_Itinerary = Itinerary, Location_Image = image, Package = package)
                 SouthEast_Asia_tab.save()
-            
             else:
                 print('nothing selected...')
-
-            # Form.save()
+            Form.save() # saving the data into holiday packages table to render all packages at one place i.e., Domestic & International
             return redirect('home')
     else:
         Form  = Holidays_Packages_Form()
@@ -50,12 +50,8 @@ def Holidays_PackagesUpload_View(request):
                  'Form':Form,
                 }
     return render(request, template,context)
-# Trip_Name
-# Days
-# Nights
-# Datailed_Itinerary
-# Location_Image
-# Package
+
+
 
 
 
@@ -63,8 +59,40 @@ def Holidays_Packages_List_View(request):
     '''
         All The Uploaded Trip/Holiday Packages Info Will List In This View
     '''
-    Data_list = Holidays_Packages_Upload.objects.all().order_by('-id')
+    Holiday_Data_list = Holidays_Packages_Upload.objects.all().order_by('-id')
+    # paginator...
+    paginator = Paginator(Holiday_Data_list, 8)
+    page = request.GET.get('page')
+    try:
+        Data_list = paginator.page(page)
+    except PageNotAnInteger:
+        Data_list = paginator.page(1)
+    except EmptyPage:
+        Data_list = paginator.page(paginator.num_pages) 
     template = 'Holidays/Holidays_Packages.html'
+    context = {
+                'Data_list': Data_list,
+                }
+    return render(request,template,context)
+
+
+
+def Domestic_Holiday_Package_List_View(request):
+    '''
+        All Domestic Packages  Info Will List In This View
+    '''
+    Domestic_Data_List = Domestic_Holiday_Package.objects.all().order_by('-id')
+    # paginator...
+    paginator = Paginator(Domestic_Data_List, 8)
+    page = request.GET.get('page')
+    try:
+        Data_list = paginator.page(page)
+    except PageNotAnInteger:
+        Data_list = paginator.page(1)
+    except EmptyPage:
+        Data_list = paginator.page(paginator.num_pages) 
+
+    template = 'Holidays/Domestic_Packages.html'
     context = {
                 'Data_list': Data_list,
                 }
