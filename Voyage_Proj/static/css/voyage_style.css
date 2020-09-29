@@ -47,6 +47,11 @@
     box-shadow: 0 10px 6px -6px black;
 
 }
+.card-block:hover{
+    -moz-box-shadow: 0 0 10px #ccc;
+    -webkit-box-shadow: 0 0 10px #ccc;
+    box-shadow: 0 0 10px #ccc;
+}
 
 .order-card {
     color: #fff;
