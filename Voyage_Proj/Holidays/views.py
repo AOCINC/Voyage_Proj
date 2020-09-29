@@ -1,5 +1,9 @@
 from django.shortcuts import render, redirect
-from .models import Holidays_Packages_Upload,Domestic_Holiday_Package
+from .models import (Holidays_Packages_Upload,Domestic_Holiday_Package,
+                    Central_Asia_Packages,Europe_Packages,Middle_East_Packages,
+                    SouthEast_Asia_Packages,
+
+                    )
 from .forms import Holidays_Packages_Form
 
 
@@ -21,8 +25,21 @@ def Holidays_PackagesUpload_View(request):
             if package == 'Domestic':
                 domestic_tab   = Domestic_Holiday_Package(Trip_Name = tripName, Days = days, Nights = nights, Datailed_Itinerary = Itinerary, Location_Image = image, Package = package)
                 domestic_tab.save()
+            if package == 'CentralAsia':
+                CentralAsia_tab   = Central_Asia_Packages(Trip_Name = tripName, Days = days, Nights = nights, Datailed_Itinerary = Itinerary, Location_Image = image, Package = package)
+                CentralAsia_tab.save()
+            if package == 'Europe':
+                Europe_tab        = Europe_Packages(Trip_Name = tripName, Days = days, Nights = nights, Datailed_Itinerary = Itinerary, Location_Image = image, Package = package)
+                Europe_tab.save()
+            if package == 'MiddleEast':
+                MiddleEast_tab    = Middle_East_Packages(Trip_Name = tripName, Days = days, Nights = nights, Datailed_Itinerary = Itinerary, Location_Image = image, Package = package)
+                MiddleEast_tab.save()
+            if package == 'SouthEast_Asia':
+                SouthEast_Asia_tab  = SouthEast_Asia_Packages(Trip_Name = tripName, Days = days, Nights = nights, Datailed_Itinerary = Itinerary, Location_Image = image, Package = package)
+                SouthEast_Asia_tab.save()
+            
             else:
-                print('select Internation package...')
+                print('nothing selected...')
 
             # Form.save()
             return redirect('home')

@@ -56,7 +56,52 @@ class Central_Asia_Packages(models.Model):
     def delete(self, *args, **kwargs):
         self.Location_Image.delete()
         super().delete(*args, **kwargs)
+    
 
+
+class Europe_Packages(models.Model):
+    '''it includes all Europe packages and falls under interanation packages '''
+    Trip_Name           = models.CharField(max_length=255, blank=False)
+    Days                = models.PositiveIntegerField()
+    Nights              = models.PositiveIntegerField()
+    Datailed_Itinerary  = models.TextField()
+    Location_Image      = models.FileField(upload_to='media/Europe/HolidayPackage_Images/')
+    Package             = models.CharField(max_length=59, choices = package_choice, default = '')
+    uploaded_at         = models.DateTimeField(auto_now_add=True)
+
+    def delete(self, *args, **kwargs):
+        self.Location_Image.delete()
+        super().delete(*args, **kwargs)
+    
         
+
+class Middle_East_Packages(models.Model):
+    '''it includes all Middle East packages and falls under interanation packages '''
+    Trip_Name           = models.CharField(max_length=255, blank=False)
+    Days                = models.PositiveIntegerField()
+    Nights              = models.PositiveIntegerField()
+    Datailed_Itinerary  = models.TextField()
+    Location_Image      = models.FileField(upload_to='media/MiddleEast/HolidayPackage_Images/')
+    Package             = models.CharField(max_length=59, choices = package_choice, default = '')
+    uploaded_at         = models.DateTimeField(auto_now_add=True)
+
+    def delete(self, *args, **kwargs):
+        self.Location_Image.delete()
+        super().delete(*args, **kwargs)
+
+    
+class SouthEast_Asia_Packages(models.Model):
+    '''it includes all SouthEast Asia packages and falls under interanation packages '''
+    Trip_Name           = models.CharField(max_length=255, blank=False)
+    Days                = models.PositiveIntegerField()
+    Nights              = models.PositiveIntegerField()
+    Datailed_Itinerary  = models.TextField()
+    Location_Image      = models.FileField(upload_to='media/SouthEast_Asia/HolidayPackage_Images/')
+    Package             = models.CharField(max_length=59, choices = package_choice, default = '')
+    uploaded_at         = models.DateTimeField(auto_now_add=True)
+
+    def delete(self, *args, **kwargs):
+        self.Location_Image.delete()
+        super().delete(*args, **kwargs)
 
     
