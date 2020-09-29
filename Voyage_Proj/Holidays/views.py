@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Holidays_Packages_Upload
+from .models import Holidays_Packages_Upload,Domestic_Holiday_Package
 from .forms import Holidays_Packages_Form
 
 
@@ -12,7 +12,19 @@ def Holidays_PackagesUpload_View(request):
     if request.method   == 'POST':
         Form   = Holidays_Packages_Form(request.POST,request.FILES)
         if Form.is_valid():
-            Form.save()
+            tripName    = Form.cleaned_data['Trip_Name']
+            days        = Form.cleaned_data['Days']
+            nights      = Form.cleaned_data['Nights']
+            Itinerary   = Form.cleaned_data['Datailed_Itinerary']
+            image       = Form.cleaned_data['Location_Image']
+            package     = Form.cleaned_data['Package']
+            if package == 'Domestic':
+                domestic_tab   = Domestic_Holiday_Package(Trip_Name = tripName, Days = days, Nights = nights, Datailed_Itinerary = Itinerary, Location_Image = image, Package = package)
+                domestic_tab.save()
+            else:
+                print('select Internation package...')
+
+            # Form.save()
             return redirect('home')
     else:
         Form  = Holidays_Packages_Form()
@@ -21,6 +33,12 @@ def Holidays_PackagesUpload_View(request):
                  'Form':Form,
                 }
     return render(request, template,context)
+# Trip_Name
+# Days
+# Nights
+# Datailed_Itinerary
+# Location_Image
+# Package
 
 
 

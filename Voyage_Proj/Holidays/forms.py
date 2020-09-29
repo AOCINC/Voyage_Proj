@@ -11,6 +11,8 @@ class Holidays_Packages_Form(forms.ModelForm):
                     'Days',
                     'Nights',
                     'Datailed_Itinerary',
+                    'Package',
                     'Location_Image',
+
 
                    ]
