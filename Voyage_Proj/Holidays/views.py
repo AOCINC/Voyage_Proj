@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger 
 from .models import (Holidays_Packages_Upload,Domestic_Holiday_Package,
@@ -53,8 +53,6 @@ def Holidays_PackagesUpload_View(request):
 
 
 
-
-
 def Holidays_Packages_List_View(request):
     '''
         All The Uploaded Trip/Holiday Packages Info Will List In This View
@@ -98,3 +96,111 @@ def Domestic_Holiday_Package_List_View(request):
                 }
     return render(request,template,context)
 
+
+
+def Domestic_Holiday_Package_Detail(request, id = None):
+    Domestic_Holiday_Package_Data = get_object_or_404(Domestic_Holiday_Package, id = id) 
+    print(Domestic_Holiday_Package_Data.Trip_Name,Domestic_Holiday_Package_Data.Location_Image)
+    context = {
+        'Domestic_Holiday_Package_Data':Domestic_Holiday_Package_Data,
+    }
+    template = 'Holidays/Domestic_Package_Detial.html'
+
+    return render(request,template,context)
+
+
+
+
+def Central_Asia_Packages_List_View(request):
+    '''
+        All central aisa  Packages  Info Will List out In This View
+    '''
+    CentralAsia_Data_List = Central_Asia_Packages.objects.all().order_by('-id')
+    # paginator...
+    paginator = Paginator(CentralAsia_Data_List, 8)
+    page = request.GET.get('page')
+    try:
+        Data_list = paginator.page(page)
+    except PageNotAnInteger:
+        Data_list = paginator.page(1)
+    except EmptyPage:
+        Data_list = paginator.page(paginator.num_pages) 
+
+    template = 'Holidays/CentralAsia_Packages.html'
+    context = {
+                'Data_list': Data_list,
+                }
+    return render(request,template,context)
+    
+
+
+
+def Europe_Packages_List_View(request):
+    '''
+        All Europe Packages  Packages  Info Will List out In This View
+    '''
+    Europe_Packages_Data_List = Europe_Packages.objects.all().order_by('-id')
+    # paginator...
+    paginator = Paginator(Europe_Packages_Data_List, 8)
+    page = request.GET.get('page')
+    try:
+        Data_list = paginator.page(page)
+    except PageNotAnInteger:
+        Data_list = paginator.page(1)
+    except EmptyPage:
+        Data_list = paginator.page(paginator.num_pages) 
+
+    template = 'Holidays/Europe_Packages.html'
+    context = {
+                'Data_list': Data_list,
+                }
+    return render(request,template,context)
+
+
+
+def Middle_East_Packages_List_View(request):
+    '''
+        All Middle East Packages  Info Will List out In This View
+    '''
+    Middle_East_Packages_Data_List = Middle_East_Packages.objects.all().order_by('-id')
+    # paginator...
+    paginator = Paginator(Middle_East_Packages_Data_List, 8)
+    page = request.GET.get('page')
+    try:
+        Data_list = paginator.page(page)
+    except PageNotAnInteger:
+        Data_list = paginator.page(1)
+    except EmptyPage:
+        Data_list = paginator.page(paginator.num_pages) 
+
+    template = 'Holidays/MiddleEast_Packages.html'
+    context = {
+                'Data_list': Data_list,
+                }
+    return render(request,template,context)
+
+
+
+
+
+
+def SouthEast_Asia_Packages_List_View(request):
+    '''
+        All SouthEast Asia Packages  Info Will List out In This View
+    '''
+    SouthEast_Asia_Packages_Data_List = SouthEast_Asia_Packages.objects.all().order_by('-id')
+    # paginator...
+    paginator = Paginator(SouthEast_Asia_Packages_Data_List, 8)
+    page = request.GET.get('page')
+    try:
+        Data_list = paginator.page(page)
+    except PageNotAnInteger:
+        Data_list = paginator.page(1)
+    except EmptyPage:
+        Data_list = paginator.page(paginator.num_pages) 
+
+    template = 'Holidays/SouthEast_Asia_Packages.html'
+    context = {
+                'Data_list': Data_list,
+                }
+    return render(request,template,context)

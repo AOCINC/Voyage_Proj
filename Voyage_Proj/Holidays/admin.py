@@ -61,6 +61,7 @@ class SouthEast_Asia_PackagesAdmin(admin.ModelAdmin):
 
 class Domestic_Holiday_PackageAdmin(admin.ModelAdmin):
     list_display = [
+                    'id',
                     'Trip_Name',
                     'Days',
                     'Nights',

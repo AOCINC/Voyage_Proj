@@ -2,7 +2,11 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Enquiry_Tab
-from Holidays.models import Holidays_Packages_Upload
+from Holidays.models import(Holidays_Packages_Upload,Domestic_Holiday_Package,Central_Asia_Packages,   
+                            Europe_Packages,
+                            Middle_East_Packages,
+                            SouthEast_Asia_Packages,
+                            ) #importing holidays app models for counting the packages 
 from .forms import Enquiry_Form
 from django.template.loader import get_template
 from django.core.mail import send_mail
@@ -17,11 +21,11 @@ from django.template import Context
 
 
 def home_view(request):
-    Domestic_count    = Holidays_Packages_Upload.objects.filter(Package = 'Domestic').count()
-    CentralAsia_Count = Holidays_Packages_Upload.objects.filter(Package = 'CentralAsia').count()
-    Europe_count      = Holidays_Packages_Upload.objects.filter(Package = 'Europe').count()
-    MiddleEast_count  = Holidays_Packages_Upload.objects.filter(Package = 'MiddleEast').count()
-    SouthEast_Asia_count = Holidays_Packages_Upload.objects.filter(Package = 'SouthEast_Asia').count()
+    Domestic_count    = Domestic_Holiday_Package.objects.all().count()
+    CentralAsia_Count = Central_Asia_Packages.objects.all().count()
+    Europe_count      = Europe_Packages.objects.all().count()
+    MiddleEast_count  = Middle_East_Packages.objects.all().count()
+    SouthEast_Asia_count = SouthEast_Asia_Packages.objects.all().count()
     template_name = 'Voyage_LandingApp/home.html'
     context    = {
                  'Domestic_count':Domestic_count,

@@ -47,11 +47,6 @@
     box-shadow: 0 10px 6px -6px black;
 
 }
-.card-block:hover{
-    -moz-box-shadow: 0 0 10px #ccc;
-    -webkit-box-shadow: 0 0 10px #ccc;
-    box-shadow: 0 0 10px #ccc;
-}
 
 .order-card {
     color: #fff;
@@ -257,3 +252,18 @@
 /* holidays package list end */
 
 
+/* holiday package detail Itinerary */
+.layout-content .itinerary-footer{
+    background: rgb(14,52,72);
+    background: linear-gradient(90deg, rgba(14,52,72,1) 100%, rgba(174,174,174,1) 100%);
+    box-shadow: 0 8px 6px -6px   black;
+
+
+}
+
+
+
+
+
+
+/* holiday package detail Itinerary ends */
