@@ -13,7 +13,7 @@
       <!-- Header -->
       <div class="container-m-nx container-m-ny theme-bg-white mb-4">
         <div class="media col-md-10 col-lg-8 col-xl-7 py-5 mx-auto">
-          <img src="{{ Domestic_Holiday_Package_Data.Location_Image.url }}" alt="" class=" col-md-12">
+          <img src="{{ Domestic_Holiday_Package_Data.Location_Image.url }}" alt="" class="col-md-12">
            <div class="media-body ml-5">
           </div>
         </div>
@@ -30,7 +30,7 @@
               <div class="row mb-2">
                 <div class="col-md-3 text-muted trip-title">Package Name:</div>
                 <div class="col-md-9">
-                 <p class="trip-title"> {{Domestic_Holiday_Package_Data.Trip_Name }} </p>
+                 <p class="trip-title"> {{Domestic_Holiday_Package_Data.Trip_Name | upper }} </p>
                 </div>
               </div>
               <div class="row mb-2">
@@ -43,7 +43,7 @@
               <div class="row mb-2">
                 <div class="col-md-3 text-muted">Nights:</div>
                 <div class="col-md-9">
-                  <a href="javascript:void(0)" class="text-body">{{ Domestic_Holiday_Package_Data.Nights}}</a>
+                  <a href="javascript:void(0)" class="trip-title">{{ Domestic_Holiday_Package_Data.Nights}}</a>
                 </div>
               </div>
 

@@ -75,6 +75,20 @@ def Holidays_Packages_List_View(request):
 
 
 
+def All_Holidays_Package_Detail(request, id = None):
+    '''all domestic internation package detial view  ''' 
+    All_Holidays_Package_Data = get_object_or_404(Holidays_Packages_Upload, id = id) 
+    package  = All_Holidays_Package_Data.Package
+    context = {
+        'All_Holidays_Package_Data':All_Holidays_Package_Data,
+    }
+    template = 'Holidays/All_Holidays_Package_Detial.html'
+
+    return render(request,template,context)
+
+
+
+
 def Domestic_Holiday_Package_List_View(request):
     '''
         All Domestic Packages  Info Will List In This View
@@ -100,7 +114,6 @@ def Domestic_Holiday_Package_List_View(request):
 
 def Domestic_Holiday_Package_Detail(request, id = None):
     Domestic_Holiday_Package_Data = get_object_or_404(Domestic_Holiday_Package, id = id) 
-    print(Domestic_Holiday_Package_Data.Trip_Name,Domestic_Holiday_Package_Data.Location_Image)
     context = {
         'Domestic_Holiday_Package_Data':Domestic_Holiday_Package_Data,
     }
@@ -131,6 +144,16 @@ def Central_Asia_Packages_List_View(request):
                 'Data_list': Data_list,
                 }
     return render(request,template,context)
+
+
+def Central_Asia_Package_Detail(request, id = None):
+    Central_Asia_Package_Data = get_object_or_404(Central_Asia_Packages, id = id) 
+    context = {
+        'Central_Asia_Package_Data':Central_Asia_Package_Data,
+    }
+    template = 'Holidays/Central_Asia_Package_Detial.html'
+
+    return render(request,template,context)
     
 
 
@@ -157,6 +180,17 @@ def Europe_Packages_List_View(request):
     return render(request,template,context)
 
 
+def Europe_Package_Detail(request, id = None):
+    Europe_Package_Data = get_object_or_404(Europe_Packages, id = id) 
+    context = {
+        'Europe_Package_Data':Europe_Package_Data,
+    }
+    template = 'Holidays/Europe_Package_Detial.html'
+
+    return render(request,template,context)
+
+
+
 
 def Middle_East_Packages_List_View(request):
     '''
@@ -179,6 +213,15 @@ def Middle_East_Packages_List_View(request):
                 }
     return render(request,template,context)
 
+
+def MiddleEast_Package_Detail(request, id = None):
+    MiddleEast_Data = get_object_or_404(Middle_East_Packages, id = id) 
+    context = {
+        'MiddleEast_Data':MiddleEast_Data,
+    }
+    template = 'Holidays/MiddleEast_Package_Detial.html'
+
+    return render(request,template,context)
 
 
 
@@ -203,4 +246,13 @@ def SouthEast_Asia_Packages_List_View(request):
     context = {
                 'Data_list': Data_list,
                 }
+    return render(request,template,context)
+
+def SouthEast_Asia_Packages_Detail(request, id = None):
+    SouthEast_Asia_Packages_Data = get_object_or_404(SouthEast_Asia_Packages, id = id) 
+    context = {
+        'SouthEast_Asia_Packages_Data':SouthEast_Asia_Packages_Data,
+    }
+    template = 'Holidays/SouthEast_Asia_Package_Detial.html'
+
     return render(request,template,context)
