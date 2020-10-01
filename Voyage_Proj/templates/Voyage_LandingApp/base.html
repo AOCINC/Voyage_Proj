@@ -60,13 +60,13 @@
                             </a>
                         </li>
                         <li class="nav-item text-center">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{% url 'Domestic_Packages' %}">
                                 <img class="text-center" src="{% static "images/domestic.png" %}" alt="" style="width: 40px;">
                                 Domestic
                              </a>
                         </li>
                         <li class="nav-item text-center">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{% url 'International_Packages' %}">
                                 <img class="text-center" src="{% static "images/Destination.png" %}" alt="" style="width: 40px;">
                                 International
                             </a>
@@ -100,6 +100,7 @@
                             LogOut 
                           </a> 
                         </li> 
+
                       {% else %}
                         <li class="nav-item"> 
                             <a class="nav-link text-center" href="{% url 'login' %}"  href="#sign-in-scrol"> 
@@ -142,6 +143,19 @@
 {% block content %}
 {% endblock %}
 <!-- content end  -->
+
+<!-- footer div -->
+ <!-- Copyright -->
+ <footer id="footer-block-home" class="page-footer font-small unique-color-dark">
+  <div class="footer-copyright text-center py-3" style="background-color: black;" id="all-in-one"> 
+    <span style =color:white;> ©️ 2020 Copyright. All Rights Reserved AOCINC PVT. LTD.</span>
+   <!-- <a id="brand-footer" href="https://mdbootstrap.com/"> AOCINC</a> -->
+ </div>
+ </footer>
+ <!-- Copyright -->
+ <!-- footer div end--> 
+ 
+ 
 
 
 

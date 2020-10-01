@@ -256,3 +256,20 @@ def SouthEast_Asia_Packages_Detail(request, id = None):
     template = 'Holidays/SouthEast_Asia_Package_Detial.html'
 
     return render(request,template,context)
+
+
+
+
+def International_Packages(request):
+    CentralAsia_Count = Central_Asia_Packages.objects.all().count()
+    Europe_count      = Europe_Packages.objects.all().count()
+    MiddleEast_count  = Middle_East_Packages.objects.all().count()
+    SouthEast_Asia_count = SouthEast_Asia_Packages.objects.all().count()
+    template = 'Holidays/International_Packages.html'
+    context = {
+                'CentralAsia_Count':CentralAsia_Count,
+                'Europe_count':Europe_count,
+                'MiddleEast_count':MiddleEast_count,
+                'SouthEast_Asia_count':SouthEast_Asia_count,                  
+              }
+    return render(request,template,context)

@@ -41,7 +41,16 @@
     
 }
 /* home nav and banner end */
-
+/* footer  */
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+  }
+/* footer end */
 /* home page package naviation  */
 .card-block{
     box-shadow: 0 10px 6px -6px black;
