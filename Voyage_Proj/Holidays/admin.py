@@ -1,8 +1,20 @@
 from django.contrib import admin
 from .models import (Holidays_Packages_Upload,Domestic_Holiday_Package,Central_Asia_Packages,
-                    Europe_Packages,Middle_East_Packages,SouthEast_Asia_Packages,
+                    Europe_Packages,Middle_East_Packages,SouthEast_Asia_Packages,Flight_Booking
                     )
 
+class Flight_BookingAdmin(admin.ModelAdmin):
+    list_display = [
+                    'Name',
+                    'Phone',
+                    'From',
+                    'To',
+                    'Date',
+                    'Till_Date',
+                    'Class',
+                    'Adults',
+                    'Children',
+                    ]
 class Holidays_Packages_UploadAdmin(admin.ModelAdmin):
     list_display = [
                     'Trip_Name',
@@ -71,7 +83,7 @@ class Domestic_Holiday_PackageAdmin(admin.ModelAdmin):
                     'uploaded_at',
                     ]
 
-
+admin.site.register(Flight_Booking,Flight_BookingAdmin)
 admin.site.register(SouthEast_Asia_Packages,SouthEast_Asia_PackagesAdmin)
 admin.site.register(Middle_East_Packages,Middle_East_PackagesAdmin)
 admin.site.register(Europe_Packages,Europe_PackagesAdmin)

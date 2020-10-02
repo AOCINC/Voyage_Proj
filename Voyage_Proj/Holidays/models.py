@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import RegexValidator
 
 
 
@@ -105,3 +106,19 @@ class SouthEast_Asia_Packages(models.Model):
         super().delete(*args, **kwargs)
 
     
+flight_classes = (
+                  ('Economy','Economy'),
+                  ('Business','Business'),
+                  
+                )
+class Flight_Booking(models.Model):
+    Name    = models.CharField(max_length=159,default='')
+    Phone   = models.CharField(max_length=12,validators = [RegexValidator(r'^\d{1,12}$')], default = '')
+    From    = models.CharField(max_length=199)
+    To      = models.CharField(max_length= 199)
+    Date    = models.DateField()
+    Till_Date   = models.DateField(blank = True,null=True)
+    Class   = models.CharField(max_length=89, choices = flight_classes)
+    Adults  = models.PositiveIntegerField(default = 0)
+    Children = models.PositiveIntegerField(blank = True,null=True,default=0)
+

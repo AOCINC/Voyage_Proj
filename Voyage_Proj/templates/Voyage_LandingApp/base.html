@@ -23,7 +23,8 @@
      crossorigin="anonymous">
      <!-- google font for signu and signin -->
      <link href="https://fonts.googleapis.com/css2?family=Volkhov:wght@700&display=swap" rel="stylesheet">
-
+    <!-- google font for brand -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
 
 
      <title>{% block title %} Voyage Holidayz {% endblock %}</title>
@@ -33,9 +34,10 @@
 <!-- Mega Navbar  -->
 <div class="jumbotron banner-area" id="main-bnr">
     <div class="container">
-          <a href="{% url 'home' %}">
-            <img src="{% static "images/brand.png" %}" alt="" style="width:250px">
-          </a>
+          <a href="{% url 'home' %}" id="brand-name"> Voyage 
+            <img src="{% static 'images/brand-flight.png'%}" alt="" style="width:">
+            Holidayz
+          </a><br>
 
         <div class="row">
             <div class="col-12">

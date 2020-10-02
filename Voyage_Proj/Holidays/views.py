@@ -3,10 +3,18 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger 
 from .models import (Holidays_Packages_Upload,Domestic_Holiday_Package,
                     Central_Asia_Packages,Europe_Packages,Middle_East_Packages,
-                    SouthEast_Asia_Packages,
+                    SouthEast_Asia_Packages,Flight_Booking
 
                     )
-from .forms import Holidays_Packages_Form
+from .forms import Holidays_Packages_Form,Flight_Booking_Form
+from django.template.loader import get_template
+from django.core.mail import send_mail
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+from django.template import Context
+
+
 
 
 
@@ -273,3 +281,49 @@ def International_Packages(request):
                 'SouthEast_Asia_count':SouthEast_Asia_count,                  
               }
     return render(request,template,context)
+
+
+
+def Flight_Booking_View(request):
+    if request.method == 'POST':
+        Form   = Flight_Booking_Form(request.POST or None)
+        if Form.is_valid():
+            From_Location  = Form.cleaned_data['From']
+            to             = Form.cleaned_data['To']
+            from_date      = Form.cleaned_data['Date']
+            till_date      = Form.cleaned_data['Till_Date']
+            class_of_journy = Form.cleaned_data['Class'] 
+            adults         = Form.cleaned_data['Adults']
+            children       = Form.cleaned_data['Children']
+            name           = Form.cleaned_data['Name']
+            phone          = Form.cleaned_data['Phone']
+            print(phone)
+            subject        = 'New Request For Flgiht Ticket'
+            context        = {
+                                'From_Location':From_Location,
+                                'to':to,
+                                'from_date':from_date,
+                                'till_date':till_date,
+                                'class_of_journy':class_of_journy,
+                                'adults':adults,
+                                'children':children,
+                                'name':name,
+                                'phone':phone,
+
+                              }
+            voyage_email    = 'aocincpvtltd@gmail.com'
+            from_email      = voyage_email
+            to              =[voyage_email,]
+            message         = get_template('Holidays/flight_booking_email.html').render(context)
+            msg             = EmailMessage(subject,message,to=to,from_email=from_email,)
+            msg.content_subtype = 'html'
+            msg.send()
+            Form.save()
+            return redirect('home')
+    else:
+        Form = Flight_Booking_Form()
+    template = 'Holidays/Flight_Booking.html'
+    context  = {
+                'Form':Form,
+                }   
+    return render(request, template, context)        

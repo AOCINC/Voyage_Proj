@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% extends 'Voyage_LandingApp/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+
+<div class="" id="Enquiry-Form">  
+    
+
+    <div class="row form-group">
+        <legend class="text-center enquiry-head" style="font-family: 'Volkhov', serif;">Flight Booking Enquiry</legend>
+        {% if Form.errors %}
+    {% for field in Form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in Form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}
+          <div class="col-sm-4 flightBookings" > 
+              {% csrf_token %}
+              <form action=""  method="post" id="flight-booking-form"><br>
+                        {% csrf_token %}
+                        {{ Form.From |as_crispy_field  }} 
+
+                </div>
+                <div class="col-sm-4" id="flight-booking-form" ><br>
+                    {{ Form.To |as_crispy_field }} 
+                </div>
+                <div class="col-sm-4" id="flight-booking-form">
+                    <small class="text-danger">Class</small> {{ Form.Class |as_crispy_field }}  
+                </div>
+                <div class="col-sm-4" id="flight-booking-form">
+                    <small class="text-danger">Date Of Journey</small>
+                    {{ Form.Date |as_crispy_field }}
+                </div>
+                <div class="col-sm-4" id="flight-booking-form">
+                    <small class="text-danger">Select Date if its For Round Trip</small>
+                    {{ Form.Till_Date |as_crispy_field }} 
+                </div>
+                
+                <div class="col-sm-4" id="flight-booking-form">
+                    <small class="text-danger">Adults</small>
+                    {{ Form.Adults  |as_crispy_field}} 
+                </div>
+                <div class="col-sm-4" id="flight-booking-form">
+                    <small class="text-danger">Children</small>
+                    {{ Form.Children |as_crispy_field }}  
+                </div>
+                <div class="col-sm-4" id="flight-booking-form">
+                    <small class="text-danger">Name</small>
+                    {{ Form.Name |as_crispy_field }} 
+                </div>
+                <div class="col-sm-4" id="flight-booking-form">
+                    <small class="text-danger">Phone</small>
+                    {{ Form.Phone |as_crispy_field }}  <br><br>
+                </div> 
+                <div class="col-sm-4" id="flight-booking-form">
+                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                </div> 
+                
+            </form>
+            </div>
+    
+    
+      </div>
+      <br><br><br><br>
+    
+
+{% endblock %}

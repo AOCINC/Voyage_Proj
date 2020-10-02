@@ -1,4 +1,14 @@
 /* home navbar and banner  */
+#brand-name{
+    color:#ffffff;
+    text-decoration: none;
+    font-family: 'Caveat', cursive;
+    font-size:40px
+
+}
+#brand-name img{
+    width: 50px;
+}
 .base-body {
     overflow-x: hidden !important;
 }
@@ -313,4 +323,16 @@ img {
 
 
 
+
 /* holiday package detail Itinerary ends */
+
+
+/* flight booking enquiry forms */
+/* below hiding the label form of flight booking form */
+#flight-booking-form  label{ 
+    display :none;
+
+}
+
+
+/* flight booking enquiry form end */

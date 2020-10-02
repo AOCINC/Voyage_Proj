@@ -1,0 +1,30 @@
+{% block content %}
+{% load static %}
+<br>
+
+<div class="container" style="background-color:#b49103; padding: 20px;">
+    <h1>  <strong style="color: #f7f8fc;font-family:Libre Baskerville', serif ;"> Voyage Holidayz</strong> </h1>
+    <div class="container text-center" style="color:white; padding:5%;">
+        <h3>Traveller Details..</h3><hr>
+        <p>FROM                   : {{ From_Location }} </p><hr>
+        <p>TO                     : {{ to }}  </p><hr>
+        <p>From Date              : {{ from_date }}</p><hr>
+        <p>Till                   : {{ till_date }} </p><hr>
+        <p>Class                  : {{ class_of_journy }} </p><hr>
+        <p>Adults                 : {{  adults }}</p><hr>
+        <p>Children               : {{  children }}</p><hr>
+        <p>Name                   : {{  name }}</p><hr>
+        <p>Phone                  : {{  phone }}</p><hr>
+    </div>
+    
+</div>
+
+
+
+
+
+
+ 
+
+{% endblock %}
+
