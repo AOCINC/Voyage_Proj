@@ -6,7 +6,8 @@
 
 
 <div class="" id="Enquiry-Form">  
-    
+    <button class="btn btn-primary" onclick="myFunction()">Round Trip/One Way</button>
+
 
     <div class="row form-group">
         <legend class="text-center enquiry-head" style="font-family: 'Volkhov', serif;">Flight Booking Enquiry</legend>
@@ -36,16 +37,7 @@
                 </div>
                 <div class="col-sm-4" id="flight-booking-form">
                     <small class="text-danger">Class</small> {{ Form.Class |as_crispy_field }}  
-                </div>
-                <div class="col-sm-4" id="flight-booking-form">
-                    <small class="text-danger">Date Of Journey</small>
-                    {{ Form.Date |as_crispy_field }}
-                </div>
-                <div class="col-sm-4" id="flight-booking-form">
-                    <small class="text-danger">Select Date if its For Round Trip</small>
-                    {{ Form.Till_Date |as_crispy_field }} 
-                </div>
-                
+                </div>                
                 <div class="col-sm-4" id="flight-booking-form">
                     <small class="text-danger">Adults</small>
                     {{ Form.Adults  |as_crispy_field}} 
@@ -63,6 +55,17 @@
                     {{ Form.Phone |as_crispy_field }}  <br><br>
                 </div> 
                 <div class="col-sm-4" id="flight-booking-form">
+                    <small class="text-danger">Date Of Journey</small>
+                    {{ Form.Date |as_crispy_field }}
+                </div>
+                <div class="col-sm-4" id="flight-booking-form">
+                    <div id="myDIV">
+                    <small class="text-danger">Select Date if its For Round Trip</small>
+                    {{ Form.Till_Date |as_crispy_field }} 
+                    </div>
+                </div>
+
+                <div class="col-sm-4" id="flight-booking-form">
                     <button type="submit" class="btn btn-primary btn-block">Submit</button>
                 </div> 
                 
@@ -73,5 +76,7 @@
       </div>
       <br><br><br><br>
     
+
+
 
 {% endblock %}
