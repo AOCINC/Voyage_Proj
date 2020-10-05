@@ -1,5 +1,5 @@
 from django import forms
-from .models import Holidays_Packages_Upload,Flight_Booking,Hotel_Booking,Visa_Enquiry
+from .models import Holidays_Packages_Upload,Flight_Booking,Hotel_Booking,Visa_Enquiry,Transports_Enquiry
 
 
 class Holidays_Packages_Form(forms.ModelForm):
@@ -63,3 +63,15 @@ class Visa_Enquiry_Form(forms.ModelForm):
 
                  }
         
+class Transports_Enquiry_Form(forms.ModelForm):
+    class Meta:
+        model = Transports_Enquiry
+        fields = '__all__'
+        widgets = {
+                    'Full_Name' : forms.TextInput(attrs = {'placeholder':'Full Name'}),
+                    'Phone'    : forms.TextInput(attrs = {'placeholder':'Phone'}),
+                    'Email'     :  forms.TextInput(attrs = {'placeholder':'Email'}),
+                    'Destination': forms.TextInput(attrs = {'placeholder':'Destination'}),
+                    'Jouryney_Date': forms.TextInput(attrs = {'type':'date'}),
+                    # 'Journey_By': forms.TextInput(attrs = {'type':'date'}),
+                  }

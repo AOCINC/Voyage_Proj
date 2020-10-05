@@ -4,10 +4,10 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import (Holidays_Packages_Upload,Domestic_Holiday_Package,
                     Central_Asia_Packages,Europe_Packages,Middle_East_Packages,
                     SouthEast_Asia_Packages,Flight_Booking,Hotel_Booking,
-                    Visa_Enquiry,
+                    Visa_Enquiry,Transports_Enquiry
 
                     )
-from .forms import Holidays_Packages_Form,Flight_Booking_Form,Hotel_Booking_Form,Visa_Enquiry_Form
+from .forms import Holidays_Packages_Form,Flight_Booking_Form,Hotel_Booking_Form,Visa_Enquiry_Form,Transports_Enquiry_Form
 from django.template.loader import get_template
 from django.core.mail import send_mail
 from django.core.mail import EmailMessage
@@ -414,3 +414,38 @@ def Visa_Enquiry_View(request):
     return render(request, template, context)
 
 
+def Transport_Enquiry_View(request):
+    if request.method == 'POST':
+        Form = Transports_Enquiry_Form(request.POST)
+        if Form.is_valid():
+            fullname = Form.cleaned_data['Full_Name']
+            phone    = Form.cleaned_data['Phone']
+            email    = Form.cleaned_data['Email']
+            destination = Form.cleaned_data['Destination']
+            journy_dt = Form.cleaned_data['Jouryney_Date']
+            journy_By = Form.cleaned_data['Journey_By']
+            subject        = 'New Request For Transport  For - ' + destination
+            context        = {
+                                'fullname':fullname,
+                                'phone':phone,
+                                'email':email,
+                                'destination':destination,
+                                'journy_dt':journy_dt,
+                                'journy_By':journy_By,                                
+                              }
+            voyage_email    = 'aocincpvtltd@gmail.com'
+            from_email      = voyage_email
+            to              =[voyage_email,]
+            message         = get_template('Holidays/Transport_Enquiry_email.html').render(context)
+            msg             = EmailMessage(subject,message,to=to,from_email=from_email,)
+            msg.content_subtype = 'html'
+            msg.send()
+            Form.save()
+            return redirect('home')
+    else:
+        Form = Transports_Enquiry_Form()
+    template = 'Holidays/Transport_Enquiry.html'
+    context  = {
+                'Form':Form,
+                }
+    return render(request,template,context)

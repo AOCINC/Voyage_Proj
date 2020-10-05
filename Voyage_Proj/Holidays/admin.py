@@ -1,21 +1,18 @@
 from django.contrib import admin
 from .models import (Holidays_Packages_Upload,Domestic_Holiday_Package,Central_Asia_Packages,
                     Europe_Packages,Middle_East_Packages,SouthEast_Asia_Packages,Flight_Booking,Hotel_Booking,
-                    Visa_Enquiry,
-                    Transport_Services
+                    Visa_Enquiry,Transports_Enquiry,
                     )
 
-
-class Transport_ServicesAdmin(admin.ModelAdmin):
+class Transports_EnquiryAdmin(admin.ModelAdmin):
     list_display = [
                     'Full_Name',
                     'Phone',
                     'Email',
+                    'Destination',
+                    'Jouryney_Date',
                     'Journey_By',
-                    'Departure',
-
-                   ]
-
+                    ]
 
 
 class Visa_EnquiryAdmin(admin.ModelAdmin):
@@ -124,8 +121,7 @@ class Domestic_Holiday_PackageAdmin(admin.ModelAdmin):
                     'uploaded_at',
                     ]
 
-
-admin.site.register(Transport_Services,Transport_ServicesAdmin)
+admin.site.register(Transports_Enquiry,Transports_EnquiryAdmin)
 admin.site.register(Visa_Enquiry,Visa_EnquiryAdmin)
 admin.site.register(Hotel_Booking,Hotel_BookingAdmin)
 admin.site.register(Flight_Booking,Flight_BookingAdmin)

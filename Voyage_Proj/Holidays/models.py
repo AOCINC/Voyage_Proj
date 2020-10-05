@@ -164,17 +164,17 @@ class Visa_Enquiry(models.Model):
 Transport = (
             ('Train','Train'),
             ('Bus','Bus'),
-            ('Others','Others')
             )
 
 
 
-class Transport_Services(models.Model):
+class Transports_Enquiry(models.Model):
     Full_Name   = models.CharField(max_length=159,default='')
     Phone       = models.CharField(max_length=12,validators = [RegexValidator(r'^\d{1,12}$')], default = '')
     Email       = models.EmailField(max_length=159)
-    Journey_By  = models.CharField(max_length=129, choices = Transport, default = '')
-    Departure   = models.DateField()
+    Destination = models.CharField(max_length=129,default = '')
+    Jouryney_Date  = models.DateField()
+    Journey_By  = models.CharField(max_length=129, choices = Transport)
 
 
 

@@ -19,5 +19,6 @@ urlpatterns = [
     path('Flight-Booking',views.Flight_Booking_View, name = 'Flight_Booking'),
     path('Hotel-Booking',views.Hotel_Booking_View, name ='Hotel_Booking'),
     path('Visa-Enquiry', views.Visa_Enquiry_View, name = 'Visa_Enquiry'),
+    path('Transports-Enquiry', views.Transport_Enquiry_View, name = 'Transports_Enquiry'),
 ]
 
