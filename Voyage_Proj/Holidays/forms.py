@@ -1,5 +1,5 @@
 from django import forms
-from .models import Holidays_Packages_Upload,Flight_Booking
+from .models import Holidays_Packages_Upload,Flight_Booking,Hotel_Booking,Visa_Enquiry
 
 
 class Holidays_Packages_Form(forms.ModelForm):
@@ -25,6 +25,7 @@ class Flight_Booking_Form(forms.ModelForm):
         widgets = {
                     'Name': forms.TextInput(attrs = {'placeholder':'Your Name'}),
                     'Phone': forms.TextInput(attrs = {'placeholder':'Phone Number'}),
+                    'Email': forms.TextInput(attrs = {'placeholder':'Email'}),
                     'From': forms.TextInput(attrs = {'placeholder':'From'}),
                     'To'  : forms.TextInput(attrs = {'placeholder':'To'}),
                     'Date': forms.TextInput(attrs = {'type':'date'}),
@@ -32,3 +33,33 @@ class Flight_Booking_Form(forms.ModelForm):
                     # 'Class':forms.TextInput(attrs = {'placeholder':'Class'})
 
                    }
+
+class Hotel_Booking_Form(forms.ModelForm):
+    class Meta:
+        model = Hotel_Booking
+        fields = '__all__'
+        widgets = {
+                    'Name':forms.TextInput(attrs = {'placeholder':'Your Name'}),
+                    'Phone': forms.TextInput(attrs = {'placeholder':'Phone Number'}),
+                    'Email': forms.TextInput(attrs = {'placeholder':'Email'}),
+                    'Destination':forms.TextInput(attrs = {'placeholder':'Destination '}),
+                    'Check_In': forms.TextInput(attrs = {'type':'date'}),
+                    'Check_Out': forms.TextInput(attrs = {'type':'date'}),
+
+
+
+                  }
+
+class Visa_Enquiry_Form(forms.ModelForm):
+    class Meta:
+        model  = Visa_Enquiry
+        fields = '__all__'
+        widgets ={
+                  'Full_Name': forms.TextInput(attrs = {'placeholder':'Full Name'}),
+                  'Phone'    : forms.TextInput(attrs = {'placeholder':'Phone'}),
+                  'Email'    : forms.TextInput(attrs = {'placeholder':'Email'}),
+                  'Country'  : forms.TextInput(attrs = {'placeholder':'Country'}),
+                #   'Duration' : forms.TextInput(attrs = {'placeholder':'Duration'})
+
+                 }
+        

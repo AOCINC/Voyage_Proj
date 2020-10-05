@@ -38,11 +38,11 @@
                 <div class="col-sm-4" id="flight-booking-form">
                     <small class="text-danger">Class</small> {{ Form.Class |as_crispy_field }}  
                 </div>                
-                <div class="col-sm-4" id="flight-booking-form">
+                <div class="col-sm-2" id="flight-booking-form">
                     <small class="text-danger">Adults</small>
                     {{ Form.Adults  |as_crispy_field}} 
                 </div>
-                <div class="col-sm-4" id="flight-booking-form">
+                <div class="col-sm-2" id="flight-booking-form">
                     <small class="text-danger">Children</small>
                     {{ Form.Children |as_crispy_field }}  
                 </div>
@@ -52,8 +52,12 @@
                 </div>
                 <div class="col-sm-4" id="flight-booking-form">
                     <small class="text-danger">Phone</small>
-                    {{ Form.Phone |as_crispy_field }}  <br><br>
+                    {{ Form.Phone |as_crispy_field }}  
                 </div> 
+                <div class="col-sm-4" id="flight-booking-form">
+                    <small class="text-danger">Email</small>
+                    {{ Form.Email |as_crispy_field }}
+                </div>
                 <div class="col-sm-4" id="flight-booking-form">
                     <small class="text-danger">Departure</small>
                     {{ Form.Date |as_crispy_field }}
@@ -65,8 +69,8 @@
                     </div>
                 </div>
 
-                <div class="col-sm-4" id="flight-booking-form">
-                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                <div class="col-sm-4" id="flight-booking-form"> <br>
+                    <button type="submit" class="btn btn-primary btn-block">Submit</button><br>
                 </div> 
                 
             </form>
@@ -75,8 +79,46 @@
     
       </div>
       <br><br><br><br>
-    
+      
+      <!-- test script for autocompletion of google api NOTE:NEED TO ENABLE BILLING FOR THAT NEED TO ADD CREDIT/DEBIT CARD... -->
+       <!-- <input id="autocomplete" placeholder='city,state' autocomplete="off" type="text"> -->
+
+      <br><br><br>
+
+    <!-- script -->
+             
+
+        <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAokuB3HxgWu7NqlciNWSuJTotq2dJqDWE&places&callback=initAutocomplete"
+        type="text/javascript"></script>  -->
+
+        <!-- <script>
+            let autocomplete;
+            function initAutocomplete() {
+                autocomplete = new google.maps.places.Autocomplete(
+                    document.getElementById('autocomplete'),
+                    {
+                        types :['establishment'],
+                        componentRestrictions : {'country':['US','AU']},
+                        fields : ['place_id','geometry','name'],
+                    });
+            }
+        </script> -->
 
 
-
+        <!-- <script>
+        function whereAutocomplete(){
+            autocomplete = new google.maps.places.Autocomplete(
+            document.getElementById('where'),
+            {
+                types :['(regions)'],
+                componentRestrictions :{'country':['INDIA','UA','UAE']}
+            }
+            );
+            autocomplete.addListener('place_changed',place_changed);
+        }
+        
+        //   function btn_handler(){
+        //     alert($("#where").val())}
+            
+        </script> -->
 {% endblock %}

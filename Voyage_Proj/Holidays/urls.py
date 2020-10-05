@@ -17,5 +17,7 @@ urlpatterns = [
     path('SouthEast_Asia_Package_Detail/<int:id>/', views.SouthEast_Asia_Packages_Detail, name = 'SouthEast_Asia_Package_Detail'),
     path('Internations-Packages', views.International_Packages, name = 'International_Packages'),
     path('Flight-Booking',views.Flight_Booking_View, name = 'Flight_Booking'),
+    path('Hotel-Booking',views.Hotel_Booking_View, name ='Hotel_Booking'),
+    path('Visa-Enquiry', views.Visa_Enquiry_View, name = 'Visa_Enquiry'),
 ]
 

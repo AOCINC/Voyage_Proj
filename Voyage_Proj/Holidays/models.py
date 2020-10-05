@@ -114,6 +114,7 @@ flight_classes = (
 class Flight_Booking(models.Model):
     Name    = models.CharField(max_length=159,default='')
     Phone   = models.CharField(max_length=12,validators = [RegexValidator(r'^\d{1,12}$')], default = '')
+    Email   = models.EmailField(max_length=159,default = '')
     From    = models.CharField(max_length=199)
     To      = models.CharField(max_length= 199)
     Date    = models.DateField()
@@ -122,3 +123,59 @@ class Flight_Booking(models.Model):
     Adults  = models.PositiveIntegerField(default = 0)
     Children = models.PositiveIntegerField(blank = True,null=True,default=0)
 
+
+Hotel_Classes = (
+                  ('Economy','Economy'),
+                  ('3-Star','3-Star'),
+                  ('4-Star','4-Star'),
+                  ('5-Star','5-Star'),
+                )
+
+
+class Hotel_Booking(models.Model):
+    Name        = models.CharField(max_length=159,default='')
+    Phone       = models.CharField(max_length=12,validators = [RegexValidator(r'^\d{1,12}$')], default = '')
+    Email       = models.EmailField(max_length=159)
+    Destination = models.CharField(max_length=199)
+    Check_In    = models.DateField()
+    Check_Out   = models.DateField(blank = True,null=True)
+    Class       = models.CharField(max_length=89, choices = Hotel_Classes)
+    Adults      = models.PositiveIntegerField(default = 0)
+    Children    = models.PositiveIntegerField(blank = True,null=True,default=0)
+    Rooms       = models.PositiveIntegerField(default = 0)
+
+
+months = (
+          ('1','1-Month'),
+          ('2','2-Months'),
+          ('3','3-Months'),
+    
+         )
+
+class Visa_Enquiry(models.Model):
+    Full_Name   = models.CharField(max_length=159,default='')
+    Phone       = models.CharField(max_length=12,validators = [RegexValidator(r'^\d{1,12}$')], default = '')
+    Email       = models.EmailField(max_length=159)
+    Country     = models.CharField(max_length = 159)
+    Duration    = models.CharField(max_length= 129, choices = months)
+
+
+
+Transport = (
+            ('Train','Train'),
+            ('Bus','Bus'),
+            ('Others','Others')
+            )
+
+
+
+class Transport_Services(models.Model):
+    Full_Name   = models.CharField(max_length=159,default='')
+    Phone       = models.CharField(max_length=12,validators = [RegexValidator(r'^\d{1,12}$')], default = '')
+    Email       = models.EmailField(max_length=159)
+    Journey_By  = models.CharField(max_length=129, choices = Transport, default = '')
+    Departure   = models.DateField()
+
+
+
+    

@@ -1,7 +1,48 @@
 from django.contrib import admin
 from .models import (Holidays_Packages_Upload,Domestic_Holiday_Package,Central_Asia_Packages,
-                    Europe_Packages,Middle_East_Packages,SouthEast_Asia_Packages,Flight_Booking
+                    Europe_Packages,Middle_East_Packages,SouthEast_Asia_Packages,Flight_Booking,Hotel_Booking,
+                    Visa_Enquiry,
+                    Transport_Services
                     )
+
+
+class Transport_ServicesAdmin(admin.ModelAdmin):
+    list_display = [
+                    'Full_Name',
+                    'Phone',
+                    'Email',
+                    'Journey_By',
+                    'Departure',
+
+                   ]
+
+
+
+class Visa_EnquiryAdmin(admin.ModelAdmin):
+    list_display = [
+                    'Full_Name',
+                    'Phone',
+                    'Email',
+                    'Country',
+                    'Duration',
+
+                    ]
+
+
+class Hotel_BookingAdmin(admin.ModelAdmin):
+    list_display = [
+                    'Name',
+                    'Phone',
+                    'Email',
+                    'Destination',
+                    'Check_In',
+                    'Check_Out',
+                    'Class',
+                    'Adults',
+                    'Children',
+                    'Rooms',
+                    ]
+
 
 class Flight_BookingAdmin(admin.ModelAdmin):
     list_display = [
@@ -83,6 +124,10 @@ class Domestic_Holiday_PackageAdmin(admin.ModelAdmin):
                     'uploaded_at',
                     ]
 
+
+admin.site.register(Transport_Services,Transport_ServicesAdmin)
+admin.site.register(Visa_Enquiry,Visa_EnquiryAdmin)
+admin.site.register(Hotel_Booking,Hotel_BookingAdmin)
 admin.site.register(Flight_Booking,Flight_BookingAdmin)
 admin.site.register(SouthEast_Asia_Packages,SouthEast_Asia_PackagesAdmin)
 admin.site.register(Middle_East_Packages,Middle_East_PackagesAdmin)
