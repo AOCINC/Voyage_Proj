@@ -10,7 +10,7 @@
 
 
     <div class="row form-group">
-        <legend class="text-center enquiry-head" style="font-family: 'Volkhov', serif;">Visa Enquiry</legend>
+        <legend class="text-center enquiry-head" style="font-family: 'Volkhov', serif;">Train/Bus Enquiry</legend>
         {% if Form.errors %}
     {% for field in Form %}
         {% for error in field.errors %}
@@ -38,19 +38,23 @@
                 <div class="col-sm-4" id="flight-booking-form">
                     <br>{{ Form.Email |as_crispy_field }}  
                 </div>                
-                <div class="col-sm-4" id="flight-booking-form">
+                <div class="col-sm-2" id="flight-booking-form">
                     <br>
                     {{ Form.Destination  |as_crispy_field}} 
+                </div>
+                <div class="col-sm-2" id="flight-booking-form">
+                    <small class="text-danger">Journey By</small>
+                    {{ Form.Journey_By |as_crispy_field }}  
                 </div>
                 <div class="col-sm-4" id="flight-booking-form">
                     <small class="text-danger">Date Of Journey</small>
                     {{ Form.Jouryney_Date |as_crispy_field }}  
                 </div>
                 <div class="col-sm-4" id="flight-booking-form">
-                    <small class="text-danger">Journey By</small>
-                    {{ Form.Journey_By |as_crispy_field }}  
+                    <small class="text-danger">Return Date</small>
+                    {{ Form.Return_Date |as_crispy_field }}  
                 </div>
-              
+
                 <div class="col-sm-4" id="flight-booking-form"> <br>
                     <button type="submit" class="btn btn-primary btn-block">Submit</button><br>
                 </div> 

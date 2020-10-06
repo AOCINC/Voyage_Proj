@@ -174,6 +174,7 @@ class Transports_Enquiry(models.Model):
     Email       = models.EmailField(max_length=159)
     Destination = models.CharField(max_length=129,default = '')
     Jouryney_Date  = models.DateField()
+    Return_Date = models.DateField()
     Journey_By  = models.CharField(max_length=129, choices = Transport)
 
 

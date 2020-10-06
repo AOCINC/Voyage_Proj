@@ -73,5 +73,6 @@ class Transports_Enquiry_Form(forms.ModelForm):
                     'Email'     :  forms.TextInput(attrs = {'placeholder':'Email'}),
                     'Destination': forms.TextInput(attrs = {'placeholder':'Destination'}),
                     'Jouryney_Date': forms.TextInput(attrs = {'type':'date'}),
+                    'Return_Date': forms.TextInput(attrs = {'type':'date'}),
                     # 'Journey_By': forms.TextInput(attrs = {'type':'date'}),
                   }

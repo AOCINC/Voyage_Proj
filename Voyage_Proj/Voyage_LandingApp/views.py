@@ -77,3 +77,28 @@ def Enquiry_View(request):
 
 
 
+def Contact_View(request):
+    if request.method == 'POST':
+        firstname = request.POST['firstName']
+        lastname  = request.POST['lastName']
+        email     = request.POST['email']
+        phone     = request.POST['phone']
+        msg       = request.POST['message']
+        subject        = 'Some One Contacted You From voyage Holidayz'
+        context        = {
+                            'firstname':firstname,
+                            'lastname':lastname,
+                            'email':email,
+                            'phone':phone,
+                            'msg':msg,
+                            }
+        voyage_email    = 'aocincpvtltd@gmail.com'
+        from_email      = voyage_email
+        to              =[voyage_email,]
+        message         = get_template('Voyage_LandingApp/Contact_email.html').render(context)
+        msg             = EmailMessage(subject,message,to=to,from_email=from_email,)
+        msg.content_subtype = 'html'
+        msg.send()
+        return redirect('home')
+    template = 'Voyage_LandingApp/Contact_View.html'
+    return render(request,template)

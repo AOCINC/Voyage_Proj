@@ -30,9 +30,25 @@
      <title>{% block title %} Voyage Holidayz {% endblock %}</title>
 
 </head>
+<!--email above navbar  -->
+<section>
+  <div class="row bg text-center pt-2 fixed-top" style="background-color: #cc8e08;">
+    <div class="col-md-6 pl-5">
+      <a href="https://api.whatsapp.com/send?phone=919886934566&text=" style="color: #ffffff;text-decoration:none;" target="_blank">
+        <p>WhatsApp +91 98869 34566</p>
+      </a>
+    </div>
+  <div>
+    <div class="col-md-4 text-center pr-5" style="margin-left:55px">
+      <a href ="https://mail.google.com/mail/?view=cm&fs=1&to=voyageandholidayz@gmail.com" style="color: #ffffff;text-decoration: none;">voyageandholidayz@gmail.com</a>
+    </div>
+  </div>
+</section> 
+<!--email above navbar end  -->
+
 <body class="base-body">
 <!-- Mega Navbar  -->
-<div class="jumbotron banner-area" id="main-bnr">
+<div class="jumbotron banner-area" id="main-bnr" style="margin-top: 45px;">
     <div class="container">
           <a href="{% url 'home' %}" id="brand-name"> Voyage 
             <img src="{% static 'images/brand-flight.png'%}" alt="" style="width:">
@@ -74,9 +90,9 @@
                             </a>
                         </li>
                         <li class="nav-item text-center">
-                            <a class="nav-link" href="#">
-                                <img class="text-center" src="{% static "images/service.png" %}" alt="" style="width: 40px;">
-                                Services
+                            <a class="nav-link" href="{% url 'Flight_Booking' %}">
+                                <img class="text-center" src="{% static "images/flights.png" %}" alt="" style="width: 40px;"><br>
+                                Flights
                             </a>
                         </li>
                         <li class="nav-item dropdown text-center">
@@ -85,8 +101,8 @@
                               <span class="text-center">More</span> 
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="#">Domestic</a>
-                              <a class="dropdown-item" href="https://www.google.com">International</a>
+                              <a class="dropdown-item" href="#">Abouts</a>
+                              <a class="dropdown-item" href="{% url 'Contact' %}">Contact Us</a>
                               <div class="dropdown-divider"></div>
                               {% if  user.get_username == 'voyage_admin' %}  
                               <a class="dropdown-item" href="{% url 'Holidays_Packages_Packages' %}">Hotel Package Upload</a>
@@ -112,7 +128,7 @@
                         </li>
                         <li class="nav-item"> 
                           <a class="nav-link text-center" href="{% url 'signup' %}"  href="#sign-in-scrol"> 
-                          <img class="text-center" src="{% static "images/login.png" %}" alt="" style="width: 35px;"> <br>
+                          <img class="text-center" src="{% static "images/signup.png" %}" alt="" style="width: 35px;"> <br>
                             SignUp 
                           </a> 
                         </li>

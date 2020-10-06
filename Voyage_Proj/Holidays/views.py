@@ -424,6 +424,7 @@ def Transport_Enquiry_View(request):
             destination = Form.cleaned_data['Destination']
             journy_dt = Form.cleaned_data['Jouryney_Date']
             journy_By = Form.cleaned_data['Journey_By']
+            return_dt =  Form.cleaned_data['Return_Date']
             subject        = 'New Request For Transport  For - ' + destination
             context        = {
                                 'fullname':fullname,
@@ -431,7 +432,8 @@ def Transport_Enquiry_View(request):
                                 'email':email,
                                 'destination':destination,
                                 'journy_dt':journy_dt,
-                                'journy_By':journy_By,                                
+                                'journy_By':journy_By, 
+                                'return_dt':return_dt,                               
                               }
             voyage_email    = 'aocincpvtltd@gmail.com'
             from_email      = voyage_email
