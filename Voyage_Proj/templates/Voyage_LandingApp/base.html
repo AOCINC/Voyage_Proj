@@ -35,20 +35,28 @@
   <div class="row bg text-center pt-2 fixed-top" style="background-color: #cc8e08;">
     <div class="col-md-6 pl-5">
       <a href="https://api.whatsapp.com/send?phone=919886934566&text=" style="color: #ffffff;text-decoration:none;" target="_blank">
-        <p>WhatsApp +91 98869 34566</p>
+        <p> <img src="{% static 'images/whatsapp.png' %}" style="width: 30px;">  +91 98869 34566</p>
       </a>
     </div>
-  <div>
     <div class="col-md-4 text-center pr-5" style="margin-left:55px">
-      <a href ="https://mail.google.com/mail/?view=cm&fs=1&to=voyageandholidayz@gmail.com" style="color: #ffffff;text-decoration: none;">voyageandholidayz@gmail.com</a>
+      <a href ="https://mail.google.com/mail/?view=cm&fs=1&to=voyageandholidayz@gmail.com"  style="color: #ffffff;text-decoration: none;">
+         <p>&nbsp;&nbsp; <img src="{% static 'images/gmail.png' %}" alt="" style="width:30px">  voyageandholidayz@gmail.com </p>
+      </a>
     </div>
   </div>
 </section> 
 <!--email above navbar end  -->
 
+
+
+
+
+
+
+
 <body class="base-body">
 <!-- Mega Navbar  -->
-<div class="jumbotron banner-area" id="main-bnr" style="margin-top: 45px;">
+<div class="jumbotron banner-area" id="main-bnr" style="margin-top: 40px;padding-top:80px">
     <div class="container">
           <a href="{% url 'home' %}" id="brand-name"> Voyage 
             <img src="{% static 'images/brand-flight.png'%}" alt="" style="width:">
