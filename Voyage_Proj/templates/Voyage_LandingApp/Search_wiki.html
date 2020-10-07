@@ -8,27 +8,19 @@
 <div class="container">
 <h1>your search result is here ....</h1>
 
-    {% if  all_images %}
-        {% for image in all_images %}
-           <img src="{{ image }}" alt="" style="width:150px">          
+    {% if  new_images %}
+        {% for image in new_images %}
+           <img src="{{ image }}" alt="" style="width:150px" id="wiki-imgs">          
 
 
         {% endfor %}
 
     {% endif %}
 </div>
-
-<div class="container">
-        <h5 class="text-center secondary">{{ page_Data}}</h5>
+<br><br>
+<div class="container jumbotron" id="wiki-data">
+        <h5 class="text-left secondary text-justify">{{ page_Data | title }}</h5>
 </div>
-
-
-
-
-
-
-
-
 
 
  

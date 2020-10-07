@@ -101,6 +101,7 @@
     position: relative;
     background-color: #dd3d31;
     background-image: url(https://startbootstrap.com/assets/img/overlay.svg), linear-gradient(45deg, #dd3d31 0%, #d22f23 100%);
+    /* background-image: url(/static/images/test_img.svg), linear-gradient(45deg, #dd3d31 0%, #d22f23 100%); */
     background-size: cover;
     z-index: 0
 }
@@ -530,3 +531,14 @@ img {
 
 
 /* flight booking enquiry form end */
+
+/* wiki search styling */
+#wiki-imgs{
+    border: 3px solid gray;
+}
+#wiki-data{
+    background-color: #ccfff8;
+}
+
+
+/* wikin search styling end here */

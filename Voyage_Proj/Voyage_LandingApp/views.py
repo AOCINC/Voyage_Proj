@@ -115,16 +115,23 @@ def AboutUs_View(request):
 def search_places_wiki_veiw(request):
     template = 'Voyage_LandingApp/Search_wiki.html'
     ask = input('enter your place:::>')
-    search = wikipedia.page(ask)
+    try:
+        search = wikipedia.page(ask)
+    except wikipedia.exceptions.DisambiguationError as e:
+        print(e)
     page_Data = search.summary
     all_images = search.images
+    new_images = []
     for image in all_images:
-        con_img = list(image.split('/'))
-        ext = con_img[-1]
-        print(ext.endswith('.jpg'))
+        if image.endswith('.jpg') or image.endswith('.png') or image.endswith('.jpeg'):
+            new_images.append(image)   
+        else:
+            print('not jpg image==================>')
+            
     context  = {
                 'search':search,
-                'all_images':all_images,
+                'new_images':new_images,
+                # 'all_images':all_images,
                 'page_Data':page_Data,
                 }
     return render(request, template,context)
