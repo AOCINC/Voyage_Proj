@@ -14,6 +14,8 @@ from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.template import Context
+import wikipedia
+
 
 
 
@@ -102,3 +104,27 @@ def Contact_View(request):
         return redirect('home')
     template = 'Voyage_LandingApp/Contact_View.html'
     return render(request,template)
+
+
+
+def AboutUs_View(request):
+    template = 'Voyage_LandingApp/AboutUs.html'
+    return render(request,template)
+
+
+def search_places_wiki_veiw(request):
+    template = 'Voyage_LandingApp/Search_wiki.html'
+    ask = input('enter your place:::>')
+    search = wikipedia.page(ask)
+    page_Data = search.summary
+    all_images = search.images
+    for image in all_images:
+        con_img = list(image.split('/'))
+        ext = con_img[-1]
+        print(ext.endswith('.jpg'))
+    context  = {
+                'search':search,
+                'all_images':all_images,
+                'page_Data':page_Data,
+                }
+    return render(request, template,context)
