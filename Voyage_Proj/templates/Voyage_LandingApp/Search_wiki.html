@@ -3,27 +3,107 @@
 {% load crispy_forms_tags %}
 {% load static %}
 
-
 {% block content %}
-<div class="container">
-<h1>your search result is here ....</h1>
 
+
+
+
+
+
+
+
+
+
+<!-- search bar -->
+<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous"> -->
+<div class="container">
+    <br/>
+	<div class="row justify-content-center">
+                        <div class="col-12 col-md-10 col-lg-8">
+                            <form class="card card-sm" method="post">
+                                {% csrf_token %}
+                                <div class="card-body row no-gutters align-items-center">
+                                    <div class="col-auto">
+                                        <i class="fas fa-search h4 text-body"></i>&nbsp;&nbsp;
+                                    </div>
+                                    <!--end of col-->
+                                    <div class="col">
+                                        <input class="form-control form-control-lg form-control-borderless" id="borderless" required type="search" name = 'wiki_name' placeholder="Search Any Place">
+                                    </div>&nbsp;
+                                    <!--end of col-->
+                                    <div class="col-auto">
+                                        <button class="btn btn-lg btn-success" type="submit">Search</button>
+                                    </div>
+                                    <!--end of col-->
+                                </div>
+                            </form>
+                        </div>
+                        <!--end of col-->
+                    </div>
+</div>
+
+
+<!--message -->
+<h1 class="text-center danger"> {{ empty_msg }}</h1>
+<!-- message -->
+
+<!-- search bar -->
+<!-- wiki search result  -->
+<div class="container">
     {% if  new_images %}
+        <h3 class="text-center text-primary">Your Search Result....</h3><br>
         {% for image in new_images %}
            <img src="{{ image }}" alt="" style="width:150px" id="wiki-imgs">          
-
-
         {% endfor %}
-
+    {% else %}
+        <h3 class="text-center text-primary">Please Search Some Thing..</h3>
     {% endif %}
 </div>
 <br><br>
-<div class="container jumbotron" id="wiki-data">
-        <h5 class="text-left secondary text-justify">{{ page_Data | title }}</h5>
+
+<!-- {% if fomatted_data %}
+<div class="container jumbotron paragraph" id="wiki-data">
+    {% for data in fomatted_data %}
+        <legend class="text-left secondary text-justify"> <i class="far fa-check-circle"></i> &nbsp; <marquee> {{ data | title }} </marquee></legend>
+    {% endfor %}
 </div>
+{% else %}
+<div class="container jumbotron paragraph" id="wiki-data">
+    <h5 class="text-center secondary"> No Data Found....</h5>
+</div>
+{% endif %} -->
 
+<br><br><br>
 
- 
+<!-- wiki serach result end here -->
+
+<!-- test parag -->
+<div class="jumbotron" id="test-para">
+    <div class="container">
+    {% if fomatted_data %}
+        {% for data in fomatted_data %}
+            <p class="text-left secondary text-justify"> <i class="far fa-check-circle" style="color:#fa7500"></i> &nbsp;  {{ data | title }} </p>
+        {% endfor %}
+    {% else %}
+        <h5 class="text-center secondary"> </h5>
+    {% endif %}
+    <!-- options only -->
+    {%if options %}
+        <p> availaible searched Items Are ...<p>
+        {% for option in options %}
+            <legend>  {{ option }} </legend>
+        {% endfor %}
+    {% endif %}
+    <!-- options -->
+    <!-- if page id is or page error message -->
+    {% if page_id %}
+      <legend> {{ page_id }}</legend>
+    {% else %}
+    <small></small>
+    {% endif %}
+    <!-- page error message -->
+    </div>
+  </div>
 
 {% endblock %}
 

@@ -15,7 +15,7 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.template import Context
 import wikipedia
-
+import requests
 
 
 
@@ -106,32 +106,78 @@ def Contact_View(request):
     return render(request,template)
 
 
-
+# about us page 
 def AboutUs_View(request):
     template = 'Voyage_LandingApp/AboutUs.html'
     return render(request,template)
 
 
+# def search_places_wiki_veiw(request):
+#     '''if end user search any thing in search box it will fetched the data from wikipedia '''
+
+
+#     template = 'Voyage_LandingApp/Search_wiki.html'
+#     if request.method == 'POST':
+#         search_name = request.POST['wiki_name']
+#         try:
+#             search = wikipedia.page(search_name)
+#         except wikipedia.exceptions.DisambiguationError as e:
+#             print(e)
+#         page_Data = search.summary
+#         fomatted_data = page_Data.split('.')
+#         all_images = search.images
+#         new_images = []
+#         for image in all_images:
+#             if image.endswith('.jpg') or image.endswith('.png') or image.endswith('.jpeg'):
+#                 new_images.append(image)   
+#             else:
+#                 print('not jpg image==================>')
+                
+#         context  = {
+#                     'search':search,
+#                     'new_images':new_images,
+#                     # 'all_images':all_images,
+#                     'fomatted_data':fomatted_data,
+#                     }
+#     return render(request, template,context)
+
 def search_places_wiki_veiw(request):
+    '''if end user search any thing in search box it will fetched the data from wikipedia '''
     template = 'Voyage_LandingApp/Search_wiki.html'
-    ask = input('enter your place:::>')
-    try:
-        search = wikipedia.page(ask)
-    except wikipedia.exceptions.DisambiguationError as e:
-        print(e)
-    page_Data = search.summary
-    all_images = search.images
+    options = None
     new_images = []
-    for image in all_images:
-        if image.endswith('.jpg') or image.endswith('.png') or image.endswith('.jpeg'):
-            new_images.append(image)   
-        else:
-            print('not jpg image==================>')
-            
-    context  = {
-                'search':search,
+    fomatted_data = None
+    page_id = None
+    connection_Err = None
+    if request.method == 'POST':
+        search_name = request.POST['wiki_name']
+        wiki_name   = search_name.strip()
+        try:
+            searched_Data = wikipedia.page(wiki_name,auto_suggest=False,redirect=True)
+            page_Data     = searched_Data.summary
+            fomatted_data = page_Data.split('.')
+            all_images = searched_Data.images
+            for image in all_images:
+                if image.endswith('.jpg') or image.endswith('.png') or image.endswith('.jpeg'):
+                    new_images.append(image)   
+                else:
+                    print('===============> not jpg,png,jpeg image..')
+        except wikipedia.exceptions.PageError as e:
+            page_id = e
+        except requests.exceptions.ConnectionError as e:
+            connection_Err = e
+            print(connection_Err)
+        except wikipedia.exceptions.DisambiguationError as e:
+            options = e.options
+    context = {
+                'options':options,
                 'new_images':new_images,
-                # 'all_images':all_images,
-                'page_Data':page_Data,
-                }
+                'fomatted_data':fomatted_data,
+                'page_id':page_id,
+              } 
     return render(request, template,context)
+
+
+# exception for timeout
+# requests.exceptions.ConnectionError:
+# requests.exceptions.ConnectionError: HTTPConnectionPool
