@@ -566,7 +566,7 @@ img {
   
   .container {
     max-width: 960px;
-    text-align: center;
+    /* text-align: center; */
   }
 /*   
   .container h1 {
