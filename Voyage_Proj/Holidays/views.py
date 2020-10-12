@@ -313,7 +313,7 @@ def Flight_Booking_View(request):
                                 'email':email,
 
                               }
-            voyage_email    = 'aocincpvtltd@gmail.com'
+            voyage_email    = 'voyageandholidayz@gmail.com'
             from_email      = voyage_email
             to              =[voyage_email,]
             message         = get_template('Holidays/flight_booking_email.html').render(context)
@@ -359,7 +359,7 @@ def Hotel_Booking_View(request):
                                 'rooms':rooms,
 
                               }
-            voyage_email    = 'aocincpvtltd@gmail.com'
+            voyage_email    = 'voyageandholidayz@gmail.com'
             from_email      = voyage_email
             to              =[voyage_email,]
             message         = get_template('Holidays/Hotel_booking_email.html').render(context)
@@ -396,7 +396,7 @@ def Visa_Enquiry_View(request):
                                 'country':country,
                                 'Duration':Duration,                                
                               }
-            voyage_email    = 'aocincpvtltd@gmail.com'
+            voyage_email    = 'voyageandholidayz@gmail.com'
             from_email      = voyage_email
             to              =[voyage_email,]
             message         = get_template('Holidays/Visa_Enquiry_email.html').render(context)
@@ -435,7 +435,7 @@ def Transport_Enquiry_View(request):
                                 'journy_By':journy_By, 
                                 'return_dt':return_dt,                               
                               }
-            voyage_email    = 'aocincpvtltd@gmail.com'
+            voyage_email    = 'voyageandholidayz@gmail.com'
             from_email      = voyage_email
             to              =[voyage_email,]
             message         = get_template('Holidays/Transport_Enquiry_email.html').render(context)

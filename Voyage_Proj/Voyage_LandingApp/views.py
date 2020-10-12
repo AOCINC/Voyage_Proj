@@ -59,7 +59,7 @@ def Enquiry_View(request):
                             'destination':destination,
                             'people':people,
                           }
-            voyage_email = 'aocincpvtltd@gmail.com'
+            voyage_email = 'voyageandholidayz@gmail.com'
             from_email   = voyage_email
             to           = [voyage_email,]
             message = get_template('Voyage_LandingApp/Enquiry_email.html').render(context)
@@ -94,7 +94,7 @@ def Contact_View(request):
                             'phone':phone,
                             'msg':msg,
                             }
-        voyage_email    = 'aocincpvtltd@gmail.com'
+        voyage_email    = 'voyageandholidayz@gmail.com'
         from_email      = voyage_email
         to              =[voyage_email,]
         message         = get_template('Voyage_LandingApp/Contact_email.html').render(context)
